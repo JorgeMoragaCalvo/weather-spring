@@ -1,5 +1,6 @@
 package com.globant.weatherspringboot.controllers;
 
+import com.globant.weatherspringboot.models.WeatherResponse;
 import com.globant.weatherspringboot.service.WeatherService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,8 @@ public class WeatherController {
     }
 
     @GetMapping("/weather")
-    public ResponseEntity<String> getWeather(@RequestParam String location){
-        String weatherData = weatherService.getWeather(location);
+    public ResponseEntity<WeatherResponse> getWeather(@RequestParam String location){
+        WeatherResponse weatherData = weatherService.getWeather(location);
         return ResponseEntity.ok(weatherData);
     }
 }
